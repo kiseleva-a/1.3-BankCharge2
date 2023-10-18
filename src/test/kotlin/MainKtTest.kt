@@ -42,6 +42,16 @@ class MainKtTest {
         assertEquals(0.0, result, 0.0)
     }
 
+    @org.junit.Test
+    fun calculateChargeMastercardLowerThanLimit() {
+        var cardType: Int = 3
+        var currentMonthPreviousTransactionsSum: Double = 0.0
+        var transactionSum = 200
+
+        val result = calculateCharge(cardType, currentMonthPreviousTransactionsSum, transactionSum)
+        assertEquals(0.0, result, 0.0)
+    }
+
 
     @org.junit.Test
     fun calculateChargeVisaOverLimit() {
@@ -61,5 +71,27 @@ class MainKtTest {
 
         val result = calculateCharge(cardType, currentMonthPreviousTransactionsSum, transactionSum)
         assertEquals(975.0, result, 0.0)
+    }
+
+
+
+    @org.junit.Test
+    fun calculateChargeMirOverLimit() {
+        var cardType: Int = 5
+        var currentMonthPreviousTransactionsSum: Double = 0.0
+        var transactionSum = 400000
+
+        val result = calculateCharge(cardType, currentMonthPreviousTransactionsSum, transactionSum)
+        assertEquals(0.0, result, 0.0)
+    }
+
+    @org.junit.Test
+    fun calculateChargeMirSuitable() {
+        var cardType: Int = 5
+        var currentMonthPreviousTransactionsSum: Double = 0.0
+        var transactionSum = 34
+
+        val result = calculateCharge(cardType, currentMonthPreviousTransactionsSum, transactionSum)
+        assertEquals(35.0, result, 0.0)
     }
 }
