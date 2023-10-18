@@ -33,6 +33,7 @@ fun calculateCharge (cardType: Int = 1, currentMonthPreviousTransactionsSum: Dou
         var viMirCharge = transactionSum * 0.0075
         if (transactionSum > 150000 || currentMonthPreviousTransactionsSum + transactionSum > 600000) {
             println("Вами был превышен лимит переводов")
+            viMirCharge = 0.0
         } else if (viMirCharge < 35) {
             viMirCharge = 35.0
         }
