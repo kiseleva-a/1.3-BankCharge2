@@ -60,7 +60,7 @@ class MainKtTest {
         var transactionSum = 200000
 
         val result = calculateCharge(cardType, currentMonthPreviousTransactionsSum, transactionSum)
-        assertEquals(0.0, result, 0.0)
+        assertEquals(250.0, result, 0.0)
     }
 
     @org.junit.Test
